@@ -1,0 +1,2 @@
+# Panaceum
+Proyecto colaborativo Panaceum
