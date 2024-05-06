@@ -8,12 +8,11 @@ Es un proyecto colaborativo de los coders de Riwi integrando los clanes de Meta 
 ______________________________________________________________________________________________________________________________________________________________________________________________
 
 <img src="https://i.postimg.cc/TPYGXfFK/Propuesta-Panaceum.png" style="width:100%">
-_________________________________________________________________________________________________________________
 
 ## Modelos UML
 
  ## Diagrama de base de datos
- <img src="https://i.postimg.cc/9F6ft2hF/diagrama-BD.png" style="width:100%">
+ <img src="https://i.postimg.cc/htCKZR6g/Diagrama-BD.png" style="width:100%">
  
  ## Diagrama de arquitectura
  <img src="https://i.postimg.cc/VNcBh2jz/diagrama-arquitectura-drawio.png" style="width:100%">
