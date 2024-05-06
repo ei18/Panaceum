@@ -1,5 +1,6 @@
 package com.riwi.panaceum.utils.enums;
 
-public class StateTreatments {
+public enum StateTreatments {
+    STARTED, PENDING, COMPLETED
     
 }
