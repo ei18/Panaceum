@@ -9,3 +9,17 @@ ________________________________________________________________________________
 
 <img src="https://i.postimg.cc/TPYGXfFK/Propuesta-Panaceum.png" style="width:100%">
 
+## Obtención de requerimientos
+ <a href="https://docs.google.com/document/d/1j1YIKSyTsicmNvsFIHYr5D-do8pb_F9wLs7YxfhJBfE/edit?usp=sharing">Requerimientos</a>
+______________________________________________________________________________________________________________________________________________________________________________________________
+## Modelos UML
+
+ ## Diagrama de base de datos
+ <img src="https://i.postimg.cc/Kcp1B9gV/diagrama-BD.png" style="width:100%">
+ 
+ ## Diagrama de arquitectura
+ <img src="https://i.postimg.cc/VNcBh2jz/diagrama-arquitectura-drawio.png" style="width:100%">
+ 
+
+
+
