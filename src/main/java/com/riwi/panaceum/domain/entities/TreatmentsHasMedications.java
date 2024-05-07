@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Treatments_has_medications {
+public class TreatmentsHasMedications {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 

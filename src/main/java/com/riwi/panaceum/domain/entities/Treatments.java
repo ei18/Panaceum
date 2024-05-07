@@ -49,6 +49,6 @@ public class Treatments {
     @OneToMany(mappedBy = "treatments", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private List<Treatments_has_medications> treatments_has_medications;
+    private List<TreatmentsHasMedications> treatments_has_medications;
     
 }
