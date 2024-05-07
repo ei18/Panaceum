@@ -15,7 +15,7 @@ ________________________________________________________________________________
 ## Modelos UML
 
  ## Diagrama de base de datos
- <img src="https://i.postimg.cc/Kcp1B9gV/diagrama-BD.png" style="width:100%">
+ <img src="https://i.postimg.cc/prh59F0C/diagrama-BD.png" style="width:100%">
  
  ## Diagrama de arquitectura
  <img src="https://i.postimg.cc/VNcBh2jz/diagrama-arquitectura-drawio.png" style="width:100%">
