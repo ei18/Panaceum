@@ -15,7 +15,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -46,5 +46,9 @@ public class Treatments {
     @Enumerated(EnumType.STRING)
     private StateTreatments state; 
     
-
+    @OneToMany(mappedBy = "treatments", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Treatments_has_medications> treatments_has_medications;
+    
 }
