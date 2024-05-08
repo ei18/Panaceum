@@ -14,7 +14,7 @@ import com.riwi.panaceum.api.dto.errors.ErrorsResp;
 
 @RestControllerAdvice
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-public class IMedications {
+public class IMedication {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public BaseErrorResponse handleBadRequest(
         MethodArgumentNotValidException exception){

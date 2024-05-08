@@ -1,5 +1,5 @@
 package com.riwi.panaceum.api.dto.request;
 
-public class MedicationsRequest {
+public class MedicationRequest {
     
 }
