@@ -1,0 +1,25 @@
+package com.riwi.panaceum.api.dto.response;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import com.riwi.panaceum.utils.enums.StateTreatment;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class TreatmentResponse {
+    private Long id; 
+    private LocalDate startDate;
+    private LocalDate finalDate;
+    private String dosage;
+    private LocalDateTime frecuency; 
+    private String doctor; 
+    private StateTreatment state; 
+}
