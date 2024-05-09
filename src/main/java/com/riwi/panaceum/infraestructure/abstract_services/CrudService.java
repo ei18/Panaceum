@@ -2,6 +2,8 @@ package com.riwi.panaceum.infraestructure.abstract_services;
 
 import org.springframework.data.domain.Page;
 
+import com.riwi.panaceum.utils.enums.SortType;
+
 public interface CrudService<RQ, RS, ID> {
     public RS create(RQ request);
 
@@ -11,5 +13,5 @@ public interface CrudService<RQ, RS, ID> {
 
     public void delete(ID id);
 
-    public Page<RS> getAll(int page, int size);
+    public Page<RS> getAll(int page, int size, SortType sortType);
 }
