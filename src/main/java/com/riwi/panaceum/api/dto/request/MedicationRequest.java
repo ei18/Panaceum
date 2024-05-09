@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MedicationRequest {
-    @NotBlank(message = "El nombre comercial es requerido")
+    @NotBlank(message = "The trade name is required")
     private String name; 
-    @NotBlank(message = "El campo de efectos adversos es requerido")
+    @NotBlank(message = "The adverse effects field is required")
     private String sideEffects;
-    @NotBlank(message = "El principio activo es requerido")
+    @NotBlank(message = "The active principle is required")
     private String activePrinciple;
     
 }

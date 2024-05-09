@@ -16,16 +16,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TreatmentRequest {
-        @NotBlank(message = "La fecha de inicio es requerida")
+        @NotBlank(message = "The start date is required")
         private LocalDate startDate;
-        @NotBlank(message = "La fecha de terminación es requerida")
+        @NotBlank(message = "The final date is required")
         private LocalDate finalDate;
-        @NotBlank(message = "La dosis de inicio con unidad de dispensación es requerida")
+        @NotBlank(message = "The dosage is required")
         private String dosage;
-        @NotBlank(message = "La frecuencia es requerida")
-        private LocalDateTime frecuency;
-        @NotBlank(message = "El nombre del médico es requerido") 
+        @NotBlank(message = "The frequency is required")
+        private LocalDateTime frequency;
+        @NotBlank(message = "The doctor's name is required") 
         private String doctor; 
-        @NotBlank(message = "El estado es requerido")
+        @NotBlank(message = "The state is required")
         private StateTreatment state; 
 }

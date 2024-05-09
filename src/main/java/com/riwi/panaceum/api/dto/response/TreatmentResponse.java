@@ -19,7 +19,7 @@ public class TreatmentResponse {
     private LocalDate startDate;
     private LocalDate finalDate;
     private String dosage;
-    private LocalDateTime frecuency; 
+    private LocalDateTime frequency; 
     private String doctor; 
     private StateTreatment state; 
 }

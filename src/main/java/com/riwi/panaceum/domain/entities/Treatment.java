@@ -41,7 +41,7 @@ public class Treatment {
     @Column(length = 20, nullable = false)
     private String dosage;
     @Column(nullable = false) 
-    private LocalDateTime frecuency; 
+    private LocalDateTime frequency; 
     @Column(length = 255, nullable = false)
     private String doctor; 
     @Column(nullable = false)

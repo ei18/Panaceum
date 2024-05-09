@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TreatmentHasMedicationRequest {
-    @NotNull(message = "El id de tratamiento es obligatorio")
+    @NotNull(message = "The treatment id is required")
     private Long treatmentsId; 
-    @NotNull(message = "El id de medicamentos es obligatorio")
+    @NotNull(message = "The medication id is required")
     private Long medicationsId;
 
 }
