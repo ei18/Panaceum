@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.riwi.panaceum.utils.enums.GenderPatient;
+import com.riwi.panaceum.utils.enums.TypeBloodPatient;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -44,7 +45,8 @@ public class Patient {
     @Enumerated(EnumType.STRING)
     private GenderPatient gender;
     @Column(length = 45, nullable = false)
-    private String typeBlood;
+    @Enumerated(EnumType.STRING)
+    private TypeBloodPatient typeBlood;
     @Column(nullable = false)
     private String diagnostic;
     @Column(length = 100, nullable = false)
