@@ -30,12 +30,12 @@ public class Medication {
     @Column(length = 255, nullable = false)
     private String name; 
     @Column(length = 255, nullable = false)
-    private String side_effects;
+    private String sideEffects;
     @Column(length = 255, nullable = false)
-    private String active_principle;
+    private String activePrinciple;
 
     @OneToMany(mappedBy = "medications", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private List<TreatmentHasMedication> treatments_has_medications;
+    private List<TreatmentHasMedication> treatmentsHasMedications;
 }

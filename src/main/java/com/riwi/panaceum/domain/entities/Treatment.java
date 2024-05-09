@@ -35,9 +35,9 @@ public class Treatment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
     @Column(length = 10, nullable = false)
-    private LocalDate start_date;
+    private LocalDate startDate;
     @Column(length = 10, nullable = false)
-    private LocalDate final_date;
+    private LocalDate finalDate;
     @Column(length = 20, nullable = false)
     private String dosage;
     @Column(nullable = false) 
@@ -51,7 +51,7 @@ public class Treatment {
     @OneToMany(mappedBy = "treatments", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private List<TreatmentHasMedication> treatments_has_medications;
+    private List<TreatmentHasMedication> treatmentsHasMedications;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patients_id", referencedColumnName = "id")
