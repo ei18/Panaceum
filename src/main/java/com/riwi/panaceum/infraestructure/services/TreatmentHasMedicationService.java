@@ -2,37 +2,43 @@ package com.riwi.panaceum.infraestructure.services;
 
 import org.springframework.data.domain.Page;
 
-import com.riwi.panaceum.api.dto.request.PatientRequest;
 import com.riwi.panaceum.api.dto.request.TreatmentHasMedicationRequest;
-import com.riwi.panaceum.api.dto.response.PatientResponse;
-import com.riwi.panaceum.api.dto.response.TreatmentHasMedicationResponse;
+import com.riwi.panaceum.domain.repositories.TreatmentHasMedicationRepository;
 import com.riwi.panaceum.infraestructure.abstract_services.ITreatmentHasMedicationService;
+import com.riwi.panaceum.utils.enums.SortType;
 
 public class TreatmentHasMedicationService implements ITreatmentHasMedicationService {
-    
+
     @Override
-    public TreatmentHasMedicationResponse create(TreatmentHasMedicationRequest request){
+    public TreatmentHasMedicationRepository create(TreatmentHasMedicationRequest request) {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
 
     @Override
-    public TreatmentHasMedicationResponse get(Long id) {
+    public TreatmentHasMedicationRepository get(Long id) {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
 
-     @Override
-    public PatientResponse update(TreatmentHasMedicationRequest request, Long id) {
+    @Override
+    public TreatmentHasMedicationRepository update(TreatmentHasMedicationRequest request, Long id) {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
     public void delete(Long id) {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
-      @Override
-    public Page<TreatmentHasMedicationResponse> getAll(int page, int size) {
+    @Override
+    public Page<TreatmentHasMedicationRepository> getAll(int page, int size, SortType sortType) {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
+    
+  
 
 }
