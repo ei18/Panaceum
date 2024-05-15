@@ -21,12 +21,14 @@ public class TreatmentHasMedication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
+    private Long treatmentId;
+    private Long medicationId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "treatments_id", referencedColumnName = "id")
-    private Treatment treatments;
+    private Treatment treatment;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medications_id", referencedColumnName = "id")
-    private Medication medications;
+    private Medication medication;
 }

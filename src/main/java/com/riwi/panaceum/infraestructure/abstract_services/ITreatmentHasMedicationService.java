@@ -1,9 +1,9 @@
 package com.riwi.panaceum.infraestructure.abstract_services;
 
 import com.riwi.panaceum.api.dto.request.TreatmentHasMedicationRequest;
-import com.riwi.panaceum.domain.repositories.TreatmentHasMedicationRepository;
+import com.riwi.panaceum.api.dto.response.TreatmentHasMedicationResponse;
 
-public interface ITreatmentHasMedicationService extends CrudService<TreatmentHasMedicationRequest, TreatmentHasMedicationRepository, Long>{
-    public String FIELD_BY_SORT = "id";
+public interface ITreatmentHasMedicationService extends CrudService<TreatmentHasMedicationRequest, TreatmentHasMedicationResponse, Long>{
+    public final String FIELD_BY_SORT = "id";
     
 }

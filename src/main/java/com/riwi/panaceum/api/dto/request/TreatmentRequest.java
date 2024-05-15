@@ -28,4 +28,6 @@ public class TreatmentRequest {
         private String doctor; 
         @NotBlank(message = "The state is required")
         private StateTreatment state; 
+        private String PatientId;
+        
 }
