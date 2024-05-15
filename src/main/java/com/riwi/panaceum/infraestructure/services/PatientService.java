@@ -105,5 +105,6 @@ public class PatientService implements IPatientService{
     
     private Patient find(String id){
         return this.patientRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Patient")));
-}
-}
+
+    }
+

@@ -21,5 +21,6 @@ public class TreatmentResponse {
     private String dosage;
     private LocalDateTime frequency; 
     private String doctor; 
-    private StateTreatment state; 
-}
+    private StateTreatment state;
+    private PatientResponse patient;
+} 

@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TreatmentHasMedicationResponse {
+    private Long id;
+    private Long treatmentId;
+    private Long medicationId;
     private TreatmentResponse treatment;
     private MedicationResponse medication;
 }

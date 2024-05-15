@@ -17,50 +17,52 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.riwi.panaceum.api.dto.request.PatientRequest;
-import com.riwi.panaceum.api.dto.response.PatientResponse;
-import com.riwi.panaceum.infraestructure.abstract_services.IPatientService;
+import com.riwi.panaceum.api.dto.request.TreatmentRequest;
+import com.riwi.panaceum.api.dto.response.TreatmentResponse;
+import com.riwi.panaceum.infraestructure.abstract_services.ITreatmentService;
 import com.riwi.panaceum.utils.enums.SortType;
 
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/patients")
+@RequestMapping(path = "/treatments")
 @AllArgsConstructor
-public class PatientController {
+public class TreatmentController {
+    
     @Autowired
-    private final IPatientService patientService;
+    private final ITreatmentService treatmentService;
 
     @GetMapping
-    public ResponseEntity<Page<PatientResponse>> getAll(
+    public ResponseEntity<Page<TreatmentResponse>> getAll(
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "10") int size,
         @RequestHeader(required = false) SortType sortType
     ){
-        if (Objects.isNull(sortType))
+        if (Objects.isNull(sortType)) {
             sortType = SortType.NONE;
+        }
 
-        return ResponseEntity.ok(this.patientService.getAll(page - 1, size, sortType));
+        return ResponseEntity.ok(this.treatmentService.getAll(page -1, size, sortType));
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<PatientResponse> get(@PathVariable String id){
-        return ResponseEntity.ok(this.patientService.get(id));
+    public ResponseEntity<TreatmentResponse> get(@PathVariable Long id){
+        return ResponseEntity.ok(this.treatmentService.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<PatientResponse> insert(@Validated @RequestBody PatientRequest request){
-        return ResponseEntity.ok(this.patientService.create(request));
+    public ResponseEntity<TreatmentResponse> insert(@Validated @RequestBody TreatmentRequest request){
+        return ResponseEntity.ok(this.treatmentService.create(request));
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<PatientResponse> update(@Validated @RequestBody PatientRequest request, @PathVariable String id){
-        return ResponseEntity.ok(this.patientService.update(request, id));
+    public ResponseEntity<TreatmentResponse> update(@Validated @RequestBody TreatmentRequest request, @PathVariable Long id){
+        return ResponseEntity.ok(this.treatmentService.update(request, id));
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id){
-        this.patientService.delete(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        this.treatmentService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
