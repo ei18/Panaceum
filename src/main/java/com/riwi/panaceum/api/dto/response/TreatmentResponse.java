@@ -1,7 +1,6 @@
 package com.riwi.panaceum.api.dto.response;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import com.riwi.panaceum.utils.enums.StateTreatment;
 
@@ -19,8 +18,9 @@ public class TreatmentResponse {
     private LocalDate startDate;
     private LocalDate finalDate;
     private String dosage;
-    private LocalDateTime frequency; 
+    private String frequency; 
     private String doctor; 
     private StateTreatment state;
+    private String patientId;
     private PatientResponse patient;
 } 

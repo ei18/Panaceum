@@ -34,7 +34,7 @@ public class Medication {
     @Column(length = 255, nullable = false)
     private String activePrinciple;
 
-    @OneToMany(mappedBy = "medications", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "medication", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<TreatmentHasMedication> treatmentsHasMedications;
