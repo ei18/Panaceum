@@ -76,7 +76,6 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
         treatmentHasMedication.setId(id);
 
         return this.entityToResponse(this.treatmentHasMedicationRepository.save(treatmentHasMedication));
-    }
 
     @Override
     public void delete(Long id) {
@@ -114,6 +113,7 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
                 .treatment(treatment)
                 .medication(medication)
                 .build();
+
 
     } 
 
