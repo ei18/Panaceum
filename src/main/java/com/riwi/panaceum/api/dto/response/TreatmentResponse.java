@@ -21,5 +21,6 @@ public class TreatmentResponse {
     private String frequency; 
     private String doctor; 
     private StateTreatment state;
+    private String patientId;
     private PatientResponse patient;
 } 
