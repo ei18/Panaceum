@@ -76,7 +76,6 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
         treatmentHasMedication.setId(id);
 
         return this.entityToResponse(this.treatmentHasMedicationRepository.save(treatmentHasMedication));
-    }
 
     @Override
     public void delete(Long id) {
@@ -115,6 +114,7 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
                 .medication(medication)
                 .build();
 
+
     } 
 
     private TreatmentHasMedication requestToEntity(TreatmentHasMedicationRequest request){
@@ -130,76 +130,3 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
     
 }
 
-
-
-
-
-//     @Autowired
-//     private TreatmentHasMedicationRepository treatmentHasMedicationRepository;
-  
-   
-//     @Override
-//     public TreatmentHasMedicationResponse create(TreatmentHasMedicationRequest request){
-//           TreatmentHasMedication enity = this.requestToEntity(request);
-//         return this.entityToResponse(this.treatmentHasMedicationRepository.save(enity));
-
-//     }
-
-//     @Override
-//     public TreatmentHasMedicationResponse get(Long id) {
-//         return this.entityToResponse(this.find(id));
-//     }
-
-//      @Override
-//     public TreatmentHasMedicationResponse update(TreatmentHasMedicationRequest request, Long id) {
-//         TreatmentHasMedication treatmentHasMedication = this.find(id);
-//        treatmentHasMedication = this.requestToEntity(request);
-//        treatmentHasMedication.setId(id);
-
-//        return this.entityToResponse(this.treatmentHasMedicationRepository.save(treatmentHasMedication));
-//     }
-
-//     @Override
-//     public void delete(Long id) {
-//         this.treatmentHasMedicationRepository.delete(this.find(id));
-//     }
-
-//     @Override
-//     public Page<TreatmentHasMedicationResponse> getAll(int page, int size, SortType sortType) {
-//        if (page < 0)
-//             page = 0;
-
-//         PageRequest pagination = null;
-
-//         switch (sortType) {
-//             case NONE -> pagination = PageRequest.of(page, size);
-//             case ASC -> pagination = PageRequest.of(page, size, Sort.by(FIELD_BY_SORT).ascending());
-//             case DESC -> pagination = PageRequest.of(page, size, Sort.by(FIELD_BY_SORT).descending());
-//         }
-
-//         this.treatmentHasMedicationRepository.findAll(pagination);
-
-//         return this.treatmentHasMedicationRepository.findAll(pagination).map(this::entityToResponse);
-//     }
-
-//     private TreatmentHasMedicationResponse entityToResponse(TreatmentHasMedication entity){
-//         return TreatmentHasMedicationResponse.builder()
-//                 .id(entity.getId())
-//                 .treatmentsId(entity.getTreatmentId())
-//                 .medicationsId(entity.getMedicationId())
-//                 .build();
-
-//     } 
-
-//     private TreatmentHasMedication requestToEntity(TreatmentHasMedicationRequest request){
-//         return TreatmentHasMedication.builder()
-//                 .treatmentId(request.getTreatmentsId())
-//                 .medicationId(request.getMedicationsId())
-//                 .build();
-//     }
-    
-//     private TreatmentHasMedication find(String id){
-//         return this.treatmentHasMedicationRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Patient")));
-//     }
-
-// }

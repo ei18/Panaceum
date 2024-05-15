@@ -27,6 +27,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class TreatmentService implements ITreatmentService{
 
+
     @Autowired
     private final TreatmentRepository treatmentRepository;
 
@@ -65,11 +66,9 @@ public class TreatmentService implements ITreatmentService{
         treatment.setPatient(patient);
         treatment.setId(id);
 
-        return this.entityToResponse(this.treatmentRepository.save(treatment));
-    }
-
     @Override
     public void delete(Long id) {
+
         this.treatmentRepository.delete(this.find(id));
     }
 
@@ -122,8 +121,4 @@ public class TreatmentService implements ITreatmentService{
            private Treatment find(Long id){
             return this.treatmentRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Treatment")));
         }
-   
-
-}
-
-
+ 
