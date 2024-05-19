@@ -90,3 +90,4 @@ public class MedicationService implements IMedicationService {
         return this.medicationRepository.findById(id).orElseThrow(() -> new com.riwi.panaceum.utils.exceptions.BadRequestException(ErrorMessages.idNotFound("Medication")));
     }
 }
+

@@ -27,6 +27,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class TreatmentService implements ITreatmentService{
 
+
     @Autowired
     private final TreatmentRepository treatmentRepository;
 
@@ -70,6 +71,7 @@ public class TreatmentService implements ITreatmentService{
 
     @Override
     public void delete(Long id) {
+
         this.treatmentRepository.delete(this.find(id));
     }
 
@@ -89,7 +91,7 @@ public class TreatmentService implements ITreatmentService{
         return this.treatmentRepository.findAll(pagination)
                 .map(this::entityToResponse);
                 
-        }
+    }
 
 
     private TreatmentResponse entityToResponse(Treatment entity){
@@ -106,7 +108,7 @@ public class TreatmentService implements ITreatmentService{
                         .state(entity.getState())
                         .patient(patient)
                         .build();
-            }
+    }
       
             private Treatment requestToEntity(TreatmentRequest request){
                 return Treatment.builder()
@@ -121,9 +123,5 @@ public class TreatmentService implements ITreatmentService{
           
            private Treatment find(Long id){
             return this.treatmentRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Treatment")));
-        }
-   
-
+            }
 }
-
-

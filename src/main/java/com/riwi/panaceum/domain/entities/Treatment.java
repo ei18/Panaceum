@@ -1,7 +1,6 @@
 package com.riwi.panaceum.domain.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import com.riwi.panaceum.utils.enums.StateTreatment;
@@ -41,14 +40,14 @@ public class Treatment {
     @Column(length = 20, nullable = false)
     private String dosage;
     @Column(nullable = false) 
-    private LocalDateTime frequency; 
+    private String frequency; 
     @Column(length = 255, nullable = false)
     private String doctor; 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StateTreatment state; 
     
-    @OneToMany(mappedBy = "treatments", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "treatment", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<TreatmentHasMedication> treatmentsHasMedications;

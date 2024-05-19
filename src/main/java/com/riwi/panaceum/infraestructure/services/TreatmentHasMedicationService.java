@@ -115,6 +115,7 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
                 .medication(medication)
                 .build();
 
+
     } 
 
     private TreatmentHasMedication requestToEntity(TreatmentHasMedicationRequest request){
@@ -128,4 +129,5 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
         return this.treatmentHasMedicationRepository.findById(id).orElseThrow(() -> new com.riwi.panaceum.utils.exceptions.BadRequestException(ErrorMessages.idNotFound("TreatmentHasMedication")));
     }
     
+
 }
