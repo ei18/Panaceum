@@ -25,4 +25,5 @@ public class PatientToUserResponse {
     private String diagnostic;    
     private String email;
     private String photo;
+    private UserResponse userResponse;
 }

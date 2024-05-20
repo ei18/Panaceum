@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.riwi.panaceum.api.dto.request.PatientRequest;
 import com.riwi.panaceum.api.dto.response.PatientResponse;
-import com.riwi.panaceum.api.dto.response.UserResponse;
+import com.riwi.panaceum.api.dto.response.UserToPatientResponse;
 import com.riwi.panaceum.domain.entities.Patient;
+import com.riwi.panaceum.domain.entities.User;
 import com.riwi.panaceum.domain.repositories.PatientRepository;
+import com.riwi.panaceum.domain.repositories.UserRepository;
 import com.riwi.panaceum.infraestructure.abstract_services.IPatientService;
 import com.riwi.panaceum.utils.enums.SortType;
 import com.riwi.panaceum.utils.exceptions.BadRequestException;
@@ -28,10 +30,19 @@ public class PatientService implements IPatientService{
     @Autowired
     private final PatientRepository patientRepository;
 
+    @Autowired
+    private final UserRepository userRepository;
+
     @Override
     public PatientResponse create(PatientRequest request) {
-        Patient enity = this.requestToEntity(request);
-        return this.entityToResponse(this.patientRepository.save(enity));
+
+        User user = this.userRepository.findById(request.getUsersId()).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("user")));
+
+        Patient patient = this.requestToEntity(request);
+
+        patient.setUser(user);
+
+        return this.entityToResponse(this.patientRepository.save(patient));
     }
 
     @Override
@@ -42,7 +53,12 @@ public class PatientService implements IPatientService{
     @Override
     public PatientResponse update(PatientRequest request, String id) {
        Patient patient = this.find(id);
+
+       User user = this.userRepository.findById(request.getUsersId()).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("user")));
+
        patient = this.requestToEntity(request);
+
+       patient.setUser(user);
        patient.setId(id);
 
        return this.entityToResponse(this.patientRepository.save(patient));
@@ -70,12 +86,14 @@ public class PatientService implements IPatientService{
                 .map(this::entityToResponse);
     }
 
+    
     private PatientResponse entityToResponse(Patient entity){
-        UserResponse user = new UserResponse();
+        UserToPatientResponse user = new UserToPatientResponse();
         BeanUtils.copyProperties(entity.getUser(), user);
 
         return PatientResponse.builder()
                 .id(entity.getId())
+                .name(entity.getName())
                 .documentType(entity.getDocumentType())
                 .documentNumber(entity.getDocumentNumber())
                 .dateBirth(entity.getDateBirth())
@@ -84,6 +102,7 @@ public class PatientService implements IPatientService{
                 .diagnostic(entity.getDiagnostic())
                 .email(entity.getEmail())
                 .photo(entity.getPhoto())
+                .user(user)
                 .build();
 
     } 
@@ -107,5 +126,6 @@ public class PatientService implements IPatientService{
         return this.patientRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Patient")));
 
     }
+
 }
 

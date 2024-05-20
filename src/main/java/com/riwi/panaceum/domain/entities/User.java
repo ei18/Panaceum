@@ -1,8 +1,5 @@
 package com.riwi.panaceum.domain.entities;
 
-import java.util.Collection;
-import java.util.List;
-
 import com.riwi.panaceum.utils.enums.RoleUser;
 
 import jakarta.persistence.Column;
@@ -35,7 +32,7 @@ public class User{
     @Enumerated(EnumType.STRING)
     private RoleUser role;
 
-    @OneToOne(mappedBy = "users")
+    @OneToOne(mappedBy = "user")
     private Patient patient;
 }
 

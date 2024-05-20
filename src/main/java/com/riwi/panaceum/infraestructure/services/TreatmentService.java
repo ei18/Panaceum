@@ -1,5 +1,7 @@
 package com.riwi.panaceum.infraestructure.services;
 
+import java.util.Objects;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +17,7 @@ import com.riwi.panaceum.domain.entities.Treatment;
 import com.riwi.panaceum.domain.repositories.PatientRepository;
 import com.riwi.panaceum.domain.repositories.TreatmentRepository;
 import com.riwi.panaceum.infraestructure.abstract_services.ITreatmentService;
+import com.riwi.panaceum.infraestructure.helpers.EmailHelper;
 import com.riwi.panaceum.utils.enums.SortType;
 import com.riwi.panaceum.utils.exceptions.BadRequestException;
 import com.riwi.panaceum.utils.messages.ErrorMessages;
@@ -34,15 +37,21 @@ public class TreatmentService implements ITreatmentService{
     @Autowired
     private final PatientRepository patientRepository;
 
+    @Autowired
+    private final EmailHelper emailHelper;
+
     @Override
     public TreatmentResponse create(TreatmentRequest request) {
         Patient patient = this.patientRepository.findById(request.getPatientId())
             .orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("patient")));
     
-    
           Treatment treatment = this.requestToEntity(request);
     
           treatment.setPatient(patient);
+
+            if (Objects.nonNull(patient.getEmail())) {
+            this.emailHelper.sendMail(patient.getEmail(), patient.getName(), patient.getDiagnostic(), treatment.getFrequency());
+        }
         
           return this.entityToResponse(this.treatmentRepository.save(treatment));
         }
@@ -110,7 +119,7 @@ public class TreatmentService implements ITreatmentService{
                         .build();
     }
       
-            private Treatment requestToEntity(TreatmentRequest request){
+    private Treatment requestToEntity(TreatmentRequest request){
                 return Treatment.builder()
                         .startDate(request.getStartDate())
                         .finalDate(request.getFinalDate())
@@ -121,7 +130,7 @@ public class TreatmentService implements ITreatmentService{
                         .build();
             } 
           
-           private Treatment find(Long id){
+    private Treatment find(Long id){
             return this.treatmentRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Treatment")));
             }
 }

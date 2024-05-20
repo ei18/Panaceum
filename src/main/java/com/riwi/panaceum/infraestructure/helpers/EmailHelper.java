@@ -21,13 +21,13 @@ import lombok.var;
 public class EmailHelper {
     private final JavaMailSender mailSender;
 
-    public void sendMail(String destinity, String namePatient, String diagnostic, String nameMedication,
+    public void sendMail(String destinity, String namePatient, String diagnostic,
             String frequency) {
         MimeMessage message = mailSender.createMimeMessage();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-        String htmlContent = this.readHTMLTemplate(namePatient, diagnostic, nameMedication, frequency);
+        String htmlContent = this.readHTMLTemplate(namePatient, diagnostic, frequency);
 
         try {
             message.setFrom(new InternetAddress("keity1897@gmail.com"));
@@ -45,14 +45,14 @@ public class EmailHelper {
         }
     }
 
-    private String readHTMLTemplate(String namePatient, String diagnostic, String nameMedication, String frequency){
+    private String readHTMLTemplate(String namePatient, String diagnostic, String frequency){
 
         final Path path = Paths.get("src/main/resources/emails/email_template.html");
 
         try(var lines = Files.lines(path)){
             var html = lines.collect(Collectors.joining());
 
-            return html.replace("{name}", namePatient).replace("{diagnostic}", diagnostic).replace("{name}", nameMedication).replace("{frequency}", frequency);
+            return html.replace("{name}", namePatient).replace("{diagnostic}", diagnostic).replace("{frequency}", frequency);
         } catch (IOException e){
             System.out.println("It was not possible to read the html");
             throw new RuntimeException();
