@@ -28,6 +28,6 @@ public class TreatmentRequest {
         private String doctor; 
         @NotNull(message = "The state is required")
         private StateTreatment state; 
-        private String PatientId;
+        private String patientId;
         
 }

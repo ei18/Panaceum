@@ -25,10 +25,10 @@ public class PatientRequest {
     private String documentType;
     @NotNull(message = "The document number is required")
     private double documentNumber;
-    @NotBlank(message = "The date of birth is required")
+    @NotNull(message = "The date of birth is required")
     private LocalDate dateBirth;
     private GenderPatient gender;
-    @NotBlank(message = "The blood type is required.")
+    @NotNull(message = "The blood type is required.")
     private TypeBloodPatient typeBlood;
     @NotBlank(message = "The diagnostic is required")
     private String diagnostic;
@@ -39,4 +39,5 @@ public class PatientRequest {
     @Size(min = 5, max = 45, message = "The password must contain between 5 and 45 characters")
     private String password;
     private String photo;
+    private Long usersId;
 }

@@ -4,6 +4,7 @@ import com.riwi.panaceum.utils.enums.RoleUser;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,6 @@ public class UserRequest {
     @NotBlank(message = "The password is required")
     @Size(min = 5, max = 45, message = "The password must contain between 5 and 45 characters")
     private String password;
-    @NotBlank(message = "The role is required")
+    @NotNull(message = "The role is required")
     private RoleUser role;
 }
