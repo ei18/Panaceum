@@ -13,7 +13,7 @@ import com.riwi.panaceum.domain.entities.Medication;
 import com.riwi.panaceum.domain.repositories.MedicationRepository;
 import com.riwi.panaceum.infraestructure.abstract_services.IMedicationService;
 import com.riwi.panaceum.utils.enums.SortType;
-import com.riwi.panaceum.utils.messages.ErrorMessages;
+import com.riwi.panaceum.utils.exceptions.IdNotFoundException;
 
 import lombok.AllArgsConstructor;
 
@@ -87,7 +87,7 @@ public class MedicationService implements IMedicationService {
     }
  
     private Medication find(Long id){
-        return this.medicationRepository.findById(id).orElseThrow(() -> new com.riwi.panaceum.utils.exceptions.BadRequestException(ErrorMessages.idNotFound("Medication")));
+        return this.medicationRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Medication"));
     }
 }
 
