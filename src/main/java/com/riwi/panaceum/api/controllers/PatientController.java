@@ -70,6 +70,7 @@ public class PatientController {
     @ApiResponse(responseCode = "400", description = "When the request is invalid", content = {
         @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))
     })
+    
     @Operation(
         summary = "Create a patient",
         description = "Create a patient"

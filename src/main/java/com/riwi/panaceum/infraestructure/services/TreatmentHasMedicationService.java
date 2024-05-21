@@ -20,6 +20,7 @@ import com.riwi.panaceum.domain.repositories.TreatmentRepository;
 import com.riwi.panaceum.infraestructure.abstract_services.ITreatmentHasMedicationService;
 import com.riwi.panaceum.utils.enums.SortType;
 import com.riwi.panaceum.utils.exceptions.BadRequestException;
+import com.riwi.panaceum.utils.exceptions.IdNotFoundException;
 import com.riwi.panaceum.utils.messages.ErrorMessages;
 
 import jakarta.transaction.Transactional;
@@ -126,7 +127,7 @@ public class TreatmentHasMedicationService implements ITreatmentHasMedicationSer
     }
     
     private TreatmentHasMedication find(Long id){
-        return this.treatmentHasMedicationRepository.findById(id).orElseThrow(() -> new com.riwi.panaceum.utils.exceptions.BadRequestException(ErrorMessages.idNotFound("TreatmentHasMedication")));
+        return this.treatmentHasMedicationRepository.findById(id).orElseThrow(() -> new IdNotFoundException("TreatmentHasMedication"));
     }
     
 }

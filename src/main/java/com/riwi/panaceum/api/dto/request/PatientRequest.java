@@ -24,7 +24,7 @@ public class PatientRequest {
     @NotBlank(message = "The type of document is required")
     private String documentType;
     @NotNull(message = "The document number is required")
-    private double documentNumber;
+    private String documentNumber;
     @NotNull(message = "The date of birth is required")
     private LocalDate dateBirth;
     private GenderPatient gender;

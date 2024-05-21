@@ -20,6 +20,7 @@ import com.riwi.panaceum.infraestructure.abstract_services.ITreatmentService;
 import com.riwi.panaceum.infraestructure.helpers.EmailHelper;
 import com.riwi.panaceum.utils.enums.SortType;
 import com.riwi.panaceum.utils.exceptions.BadRequestException;
+import com.riwi.panaceum.utils.exceptions.IdNotFoundException;
 import com.riwi.panaceum.utils.messages.ErrorMessages;
 
 import jakarta.transaction.Transactional;
@@ -131,6 +132,6 @@ public class TreatmentService implements ITreatmentService{
             } 
           
     private Treatment find(Long id){
-            return this.treatmentRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Treatment")));
+            return this.treatmentRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Treatment"));
             }
 }

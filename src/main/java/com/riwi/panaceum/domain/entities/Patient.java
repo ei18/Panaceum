@@ -39,7 +39,7 @@ public class Patient {
     @Column(length = 45, nullable = false)
     private String documentType;
     @Column(nullable = false)
-    private double documentNumber;
+    private String documentNumber;
     @Column(nullable = false)
     private LocalDate dateBirth;
     @Enumerated(EnumType.STRING)

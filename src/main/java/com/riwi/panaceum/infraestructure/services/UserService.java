@@ -1,30 +1,22 @@
 package com.riwi.panaceum.infraestructure.services;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.riwi.panaceum.api.dto.request.UserRequest;
 import com.riwi.panaceum.api.dto.response.PatientToUserResponse;
 import com.riwi.panaceum.api.dto.response.UserResponse;
-import com.riwi.panaceum.domain.entities.Patient;
 import com.riwi.panaceum.domain.entities.User;
 import com.riwi.panaceum.domain.repositories.UserRepository;
 import com.riwi.panaceum.infraestructure.abstract_services.IUserService;
-import com.riwi.panaceum.utils.enums.GenderPatient;
 import com.riwi.panaceum.utils.enums.SortType;
-import com.riwi.panaceum.utils.enums.TypeBloodPatient;
-import com.riwi.panaceum.utils.exceptions.BadRequestException;
-import com.riwi.panaceum.utils.messages.ErrorMessages;
+import com.riwi.panaceum.utils.exceptions.IdNotFoundException;
 
 import lombok.AllArgsConstructor;
 
@@ -99,6 +91,6 @@ public class UserService implements IUserService{
     }
 
     private User find(Long id){
-        return this.userRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("User")));
+        return this.userRepository.findById(id).orElseThrow(() -> new IdNotFoundException("User"));
     }
 }

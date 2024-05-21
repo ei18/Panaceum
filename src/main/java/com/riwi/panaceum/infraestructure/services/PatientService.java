@@ -17,6 +17,7 @@ import com.riwi.panaceum.domain.repositories.UserRepository;
 import com.riwi.panaceum.infraestructure.abstract_services.IPatientService;
 import com.riwi.panaceum.utils.enums.SortType;
 import com.riwi.panaceum.utils.exceptions.BadRequestException;
+import com.riwi.panaceum.utils.exceptions.IdNotFoundException;
 import com.riwi.panaceum.utils.messages.ErrorMessages;
 
 import jakarta.transaction.Transactional;
@@ -123,7 +124,7 @@ public class PatientService implements IPatientService{
     }
     
     private Patient find(String id){
-        return this.patientRepository.findById(id).orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Patient")));
+        return this.patientRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Patient"));
 
     }
 

@@ -18,7 +18,7 @@ public class PatientResponse {
     private String id;
     private String name;    
     private String documentType;    
-    private double documentNumber;    
+    private String documentNumber;    
     private LocalDate dateBirth;    
     private GenderPatient gender;
     private TypeBloodPatient typeBlood;    
